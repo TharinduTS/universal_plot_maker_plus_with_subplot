@@ -1860,5 +1860,7 @@ python universal_plot_maker_plus.py \
 ### Notes
 
 If you pick an aggregate duplicate policy (max|mean|median|first|sum), the script collapses duplicates before building the Plotly figure; overlay/stack keep all rows and handle layering in the client.
+
 --self-contained can make large HTMLs (Plotly.js embedded); use the default CDN mode for smaller files.
+
 The TSV Export button saves filtered rows; if you have an active selection (lasso/box), it exports only the selected subset.
