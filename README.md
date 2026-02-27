@@ -5,7 +5,6 @@ This updated script introduces the ability to use sublots, so you can plot dataf
 ## Improved Script
 
 ```py
-
 #!/usr/bin/env python3
 """
 Universal interactive plot maker (generalized)
@@ -231,9 +230,17 @@ def build_figure_payload(
             asc_flags.append(sort_secondary_order.lower() == "asc")
         if not cols:
             return df2
+        # Only coerce to numeric if the conversion is meaningful.
+        # Leave clearly text columns (e.g., "Target Name") as strings.
         for c in cols:
-            if not pd.api.types.is_numeric_dtype(df2[c]):
-                df2[c] = pd.to_numeric(df2[c], errors="coerce")
+            s = df2[c]
+            if pd.api.types.is_numeric_dtype(s):
+                continue
+            # Try conversion but keep it only if most values are numeric
+            s_num = pd.to_numeric(s.astype(str).str.replace(",", ".", regex=False), errors="coerce")
+            if s_num.notna().sum() >= max(3, int(0.95 * len(s))):
+                df2[c] = s_num
+
         df2 = df2.sort_values(by=cols, ascending=asc_flags, kind="mergesort")
         return df2
 
