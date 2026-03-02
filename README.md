@@ -4,6 +4,7 @@ This updated script introduces the ability to use sublots, so you can plot dataf
 
 ## Improved Script
 
+universal_plot_maker_plus.py
 ```py
 #!/usr/bin/env python3
 """
