@@ -4,8 +4,8 @@ This updated script introduces the ability to use sublots, so you can plot dataf
 
 ## Notes
 
-1. If you pick an aggregate duplicate policy (max|mean|median|first|sum) as default --dup-policy, the script collapses duplicates before building the Plotly figure; overlay/stack keep all rows and handle layering in the client.*
-*Therefore it is always advisable to use overlay/stack as the starting dup-policy
+1. If you pick an aggregate duplicate policy (max|mean|median|first|sum) as default --dup-policy, the script collapses duplicates before building the Plotly figure; overlay/stack keep all rows and handle layering in the client.
+Therefore it is always advisable to use overlay/stack as the starting dup-policy
 
 2. --self-contained can make large HTMLs (Plotly.js embedded); use the default CDN mode for smaller files.
 
