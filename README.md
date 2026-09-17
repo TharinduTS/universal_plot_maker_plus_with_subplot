@@ -1,6 +1,6 @@
 # universal_plot_maker_plus_with_subplot
 
-Please read the help file in docs for more info
+###Please read the help file in docs for more info
 
 This updated script introduces the ability to use sublots, so you can plot dataframes with more than 3 layers.
 
