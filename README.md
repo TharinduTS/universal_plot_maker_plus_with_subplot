@@ -1,5 +1,7 @@
 # universal_plot_maker_plus
 
+### Please read the help file in docs for more info and subplot configuration
+
 # 1) Introduction
 
 universal_plot_maker_plus.py is a flexible and general‑purpose interactive plotting tool for exploring large tabular datasets (TSV/CSV). It produces a self‑contained HTML file with dynamic controls that allow end‑users to switch axes, filter data, search, sort, zoom, and export selected subsets — all without requiring Python or Plotly installed.
