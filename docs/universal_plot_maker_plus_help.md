@@ -23,68 +23,68 @@ universal_plot_maker_plus.py — CLI Reference
 1) Input / Output
 
 --file, -f <PATH>
-Required. Input table (TSV/CSV). Separator auto‑detected by extension unless --sep is provided. [phrica-my....epoint.com]
+Required. Input table (TSV/CSV). Separator auto‑detected by extension unless --sep is provided. 
 --out, -o <PATH>
-Output HTML file. Default: interactive_plot.html. [phrica-my....epoint.com]
+Output HTML file. Default: interactive_plot.html. 
 --sep <STR>
-Field separator override (e.g., \t, ,). If omitted, inferred from file extension (.tsv/.tab→tab, .csv→comma). [phrica-my....epoint.com]
+Field separator override (e.g., \t, ,). If omitted, inferred from file extension (.tsv/.tab→tab, .csv→comma). 
 --self-contained
-Embed Plotly.js in the HTML for fully offline viewing. If omitted, uses CDN. [phrica-my....epoint.com]
+Embed Plotly.js in the HTML for fully offline viewing. If omitted, uses CDN. 
 --lang <BCP47>
-HTML language attribute (e.g., en, en-CA). Default: en. [phrica-my....epoint.com]
+HTML language attribute (e.g., en, en-CA). Default: en. 
 
 2) Plot Basics
 
 --plot-type <bar|scatter|line>
-Initial plot type. Default: bar. [phrica-my....epoint.com]
+Initial plot type. Default: bar. 
 --title <STR>
-Initial figure title (shown above the Plotly chart). [phrica-my....epoint.com]
+Initial figure title (shown above the Plotly chart). 
 
 3) Axis Choices & Defaults
 These flags define which columns are available in the UI dropdowns and what loads first.
 
 --x-choices "<C1|C2|…>"
-Columns allowed for X. For bar, X is categorical; for scatter/line, X must be numeric. Falls back to all columns if omitted. [phrica-my....epoint.com]
+Columns allowed for X. For bar, X is categorical; for scatter/line, X must be numeric. Falls back to all columns if omitted. 
 --y-choices "<C1|C2|…>"
-Columns allowed for Y (numeric). Falls back to all numeric columns if omitted. [phrica-my....epoint.com]
+Columns allowed for Y (numeric). Falls back to all numeric columns if omitted. 
 --default-x "<COL>"
-Initial X column at load (must be in --x-choices). If omitted, uses the first in x-choices. [phrica-my....epoint.com]
+Initial X column at load (must be in --x-choices). If omitted, uses the first in x-choices. 
 --default-y "<COL>"
-Initial Y column at load (must be in --y-choices). If omitted, uses the first numeric candidate. [phrica-my....epoint.com]
+Initial Y column at load (must be in --y-choices). If omitted, uses the first numeric candidate. 
 
 4) Coloring (group by)
 
 --color-col "<COL>"
-Column used to color points/bars by category (legend optional; see --show-legend). [phrica-my....epoint.com]
+Column used to color points/bars by category (legend optional; see --show-legend). 
 --color-choices "<C1|C2|…>"
-Columns the UI will allow for “Color by”. If omitted, any column can be chosen. [phrica-my....epoint.com]
+Columns the UI will allow for “Color by”. If omitted, any column can be chosen. 
 --show-legend
-Show legend (hidden if not set). [phrica-my....epoint.com]
+Show legend (hidden if not set). 
 
 5) Filtering & Search (client‑side UI)
 
 --filter-cols "<C1|C2|…>"
-Adds dropdown filters for these columns (plus an “All” option). [phrica-my....epoint.com]
+Adds dropdown filters for these columns (plus an “All” option). 
 --filter-defaults "col=value; col=value"
-Preselect default values in those filter dropdowns. [phrica-my....epoint.com]
+Preselect default values in those filter dropdowns. 
 --search-cols "<C1|C2|…>"
-Adds text search boxes (case‑insensitive “contains”). [phrica-my....epoint.com]
+Adds text search boxes (case‑insensitive “contains”). 
 --search-defaults "col=term; col=term"
-Prefill the search boxes with initial terms. [phrica-my....epoint.com]
+Prefill the search boxes with initial terms. 
 
 6) Sorting (client‑side UI)
 
 --sort-primary "<COL>"
-Primary sort column to use on first render (must exist in data). [phrica-my....epoint.com]
+Primary sort column to use on first render (must exist in data). 
 --sort-primary-order <asc|desc>
-Default: desc. [phrica-my....epoint.com]
+Default: desc. 
 --sort-secondary "<COL>"
-Optional secondary sort (applies when primary ties). [phrica-my....epoint.com]
+Optional secondary sort (applies when primary ties). 
 --sort-secondary-order <asc|desc>
-Default: desc. [phrica-my....epoint.com]
+Default: desc. 
 
 
-Sorting is applied after duplicates are handled (see next section) and respects numeric values where possible. [phrica-my....epoint.com]
+Sorting is applied after duplicates are handled (see next section) and respects numeric values where possible. 
 
 7) Duplicates (pre‑plot or visual)
 
@@ -93,41 +93,41 @@ How duplicate X categories are handled:
 
 overlay / stack: keep all rows; bar mode renders single or stacked layers.
 max|mean|median|first|sum: collapse duplicates before plotting using that aggregation for Y.
-separate: split duplicates into X_#1, X_#2, … so each gets its own bar. [phrica-my....epoint.com]
+separate: split duplicates into X_#1, X_#2, … so each gets its own bar. 
 
 
 
 8) Zoom & Details / Export
 
 --initial-zoom <INT>
-Initial number of bars/points shown (viewport range; data are not sliced). Default: 100. [phrica-my....epoint.com]
+Initial number of bars/points shown (viewport range; data are not sliced). Default: 100. 
 --details "<C1|C2|…>" or "*"
-Columns included in hover, click‑details table, and TSV export. * = all columns. Default: *. [phrica-my....epoint.com]
+Columns included in hover, click‑details table, and TSV export. * = all columns. Default: *. 
 
 
-Interactions: click a bar/point to populate the details table; use lasso/box to select and then Export TSV to save only the selected rows (otherwise exports all filtered rows). [phrica-my....epoint.com]
+Interactions: click a bar/point to populate the details table; use lasso/box to select and then Export TSV to save only the selected rows (otherwise exports all filtered rows). 
 
 9) “Present tissues” Subplot (SVG micro‑chart on click)
 Enable and control the auxiliary bar chart that renders from a cell string (e.g., "0.41: Tissue A & 0.12: Tissue B").
 
 --pt-enable
-Turns the subplot feature on. (If off, only the main Plotly figure & details UI are rendered.) [phrica-my....epoint.com]
+Turns the subplot feature on. (If off, only the main Plotly figure & details UI are rendered.) 
 --pt-col "<COL>"
-Column that contains the encoded sub‑data (e.g., Present tissues). Default: "Present tissues". [phrica-my....epoint.com]
+Column that contains the encoded sub‑data (e.g., Present tissues). Default: "Present tissues". 
 --pt-title "<STR>"
-Title for the subplot box. Default: "Present tissues". [phrica-my....epoint.com]
+Title for the subplot box. Default: "Present tissues". 
 --pt-x-label "<STR>" / --pt-y-label "<STR>"
-Axis labels shown under/left of the mini chart. Defaults: Tissue, Score. [phrica-my....epoint.com]
+Axis labels shown under/left of the mini chart. Defaults: Tissue, Score. 
 --pt-color "<CSS_COLOR>"
-Bar color (e.g., #2a9d8f). Default: #4e79a7. [phrica-my....epoint.com]
+Bar color (e.g., #2a9d8f). Default: #4e79a7. 
 --pt-height <INT> / --pt-width <INT|'auto'>
-Subplot SVG height; width can be a number or 'auto' (auto uses a constant bar width + gap to decide total width with horizontal scroll when needed). Defaults: 340, auto. [phrica-my....epoint.com]
+Subplot SVG height; width can be a number or 'auto' (auto uses a constant bar width + gap to decide total width with horizontal scroll when needed). Defaults: 340, auto. 
 --pt-rotate <INT>
-X‑tick label rotation in degrees. Default: -40. [phrica-my....epoint.com]
+X‑tick label rotation in degrees. Default: -40. 
 --pt-container-id "<ID>"
-HTML id for the subplot container div. Default: present-tissues-plot. [phrica-my....epoint.com]
+HTML id for the subplot container div. Default: present-tissues-plot. 
 --pt-min-width <INT>
-Minimum column/SVG width to protect labels/title from clipping. Default: 420. [phrica-my....epoint.com]
+Minimum column/SVG width to protect labels/title from clipping. Default: 420. 
 
 Subplot placement (CLI‑driven)
 
@@ -137,13 +137,13 @@ Placement strategy.
 flow: Inserts a flex row with “details” on the left and subplot on the right (side‑by‑side).
 absolute: Places the subplot absolutely within a positioned wrapper near the anchor.
 fixed: Pins the subplot to the viewport (independent of page flow).
-Default: flow. [phrica-my....epoint.com]
+Default: flow. 
 
 
 --pt-anchor "<CSS_SELECTOR>"
-Anchor element used to place the subplot (e.g., #rowDetails, #controls). Default: #rowDetails. [phrica-my....epoint.com]
+Anchor element used to place the subplot (e.g., #rowDetails, #controls). Default: #rowDetails. 
 --pt-position <before|after|inside>
-Placement relative to the anchor (supported in flow and absolute modes). Default: after. [phrica-my....epoint.com]
+Placement relative to the anchor (supported in flow and absolute modes). Default: after. 
 --pt-offset-x <INT> / --pt-offset-y <INT>
 Pixel offsets to nudge the subplot position. Positive X → right, negative X → left. Positive Y → down, negative Y → up. (In flow, applied as a visual translate on the subplot column; in absolute/fixed, applied to the absolutely/fixed‑positioned box.) Defaults: 0, 0
 ```
